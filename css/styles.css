@@ -1,0 +1,177 @@
+/***************
+* CONTAINER
+****************/
+
+.holder {
+  width: 100%;
+  height: 100%;
+  background: url(../img/background.jpg);
+  background-size: cover;
+}
+
+.ui.container {
+  max-width: 768px !important;
+}
+
+/***************
+* HEADER
+****************/
+
+.header {
+  padding: 15px 0;
+  background: #5a8b60;
+}
+
+.logo-description {
+  color: #fff;
+}
+
+.logo {
+  float: left;
+  margin-right: 8px;
+  font-size: 24px;
+  margin-top: 4px;
+}
+
+.logo-container {
+  margin-top: 4px;
+  cursor: default;
+}
+
+.logo-description {
+	margin: 0;
+}
+
+.control-block {
+  float: right;
+}
+
+
+/***************
+* ADD TODO CONTAINER
+****************/
+
+.add-container {
+  padding: 15px 0;
+}
+
+.add-input-block {
+}
+
+.ui.add-input-block > input {
+  background: rgba(90, 139, 96, 0.8) !important;
+  border: none;
+  color: #fff !important;
+}
+
+.ui.add-input-block > input::placeholder {
+  color: rgba(255,255,255,.8) !important;
+}
+
+.ui.add-input-block > input:focus::placeholder {
+  color: rgba(255,255,255,1) !important;
+}
+
+
+/***************
+* TASK CONTAINER
+****************/
+.task-container .ui.list > .item {
+  background: #fff;
+  border-radius: 3px;
+  /* display: flex; */
+  /* align-items: center; */
+  padding: 10px 15px;
+  cursor: pointer;
+  border-top: none;
+  position: relative;
+  /* min-height: 63px; */
+}
+
+.task-container .ui.list > .item .box {
+  cursor: pointer;
+}
+
+.icon.important-task-icon {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  margin-left: 14px;
+  border-radius: 0;
+}
+
+.task-container .ui.list > .item + .item {
+  margin-top: 2px;
+}
+
+.icon-bar {
+  padding-top: 10px;
+  color: #999;
+}
+
+/* Checked state */
+
+.task-container .ui.list > .item.checked {
+  opacity: 0.7;
+}
+
+.task-container .ui.list .ui.checkbox.checked label {
+  text-decoration: line-through;
+}
+
+/***************
+* COMPLETED TODO
+****************/
+
+.completed-todo {
+  padding: 15px 0;
+  text-align: center;
+}
+
+
+/***************
+* MODAL
+****************/
+
+.ui.dimmer.visible {
+  display: flex !important;
+}
+
+.ui.modal .close {
+    top: 20px;
+    right: 1rem;
+    color: rgba(0,0,0,.87);
+}
+
+.edit-modal .ui.form .title-edit {
+  resize: none;
+  min-height: 34px;
+  font-size: 1.3em;
+  height: 38px;
+  padding: 6px 8px;
+  overflow: auto;
+  border-color: transparent;
+  font-weight: 600;
+  margin: 0 -8px;
+}
+
+.edit-modal .ui.form {
+  padding-right: 30px;
+}
+
+.edit-modal .ui.form .title-edit:focus {
+  border: 1px solid #5ba4cf;
+  box-shadow: 0 0 0 1px #5ba4cf;
+}
+
+.edit-modal .ui.form .description-task {
+  resize: none;
+}
+
+.ui.form .field > label.attach-file-btn {
+  display: inline-block;
+}
+
+.attach-container img {
+  max-width: 300px;
+}
