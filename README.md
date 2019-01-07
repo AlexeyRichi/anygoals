@@ -12,7 +12,7 @@ AnyGoals — приложение в котором пользователь м�
 
 ---
 
-<a href="https://t.me/metacode_ru"><img align="left" width="75" height="54" title="MetaCode" src="https://image.prntscr.com/image/cgIXyfzPTOGv-z1mqQKgEg.png"></a>
+<a href="https://t.me/metacode_ru"><img align="left" width="54" height="54" title="MetaCode" src="https://image.prntscr.com/image/cgIXyfzPTOGv-z1mqQKgEg.png"></a>
 
 Проект был создан на курсе «[Основы JavaScript](http://metacode.in)» 
 от [MetaCode](https://t.me/metacode_ru).
