@@ -30,7 +30,7 @@
         let a = item[i];
           a.addEventListener('click', function (ev) {
           a.removeAttribute('id', 'check');
-
+          
           });
         }
     }
@@ -42,7 +42,7 @@
          self.addEventListener('click', function (event) {
            this.classList.remove('checked');
            moveBack(this);
-              list.appendChild(check);
+           list.appendChild(check);
         });
      }
     });
