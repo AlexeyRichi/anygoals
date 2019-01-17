@@ -1,12 +1,14 @@
 (function () { 
 	let data = [];
 
-	const btn = document.querySelector('.hidden');
+	const btn = document.querySelector('.show-todo-btn-js');
 	const listCompleted = document.querySelector('.completed-task-list');
 	let isActive = false;
 
-	function buttonShow() {
-		btn.classList.remove('hidden');
+	if (data.length === 0 ){
+		btn.className = 'd-none';
+	}
+	else {
 		btn.className = 'ui button blue tiny show-todo-btn-js';
 	}
 
@@ -22,15 +24,15 @@
 			isActive = true;
 		}
 		
-		listCompleted.classList.toggle('hidden');
+		listCompleted.classList.toggle('d-none');
 	});
   
+
 function getCompletedTask() {
        return data;
     }
 
     window.app.getCompletedTask = getCompletedTask;
-    window.app.buttonShow = buttonShow;
 	
  console.log(data.length );
 })();

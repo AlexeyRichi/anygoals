@@ -41,12 +41,13 @@
 
     function removeTask(elem, index) {
         elem.removeEventListener('click', removeTask);
-
+        
         app.addCompletedTask(data[index]);
         app.renderCompletedList();
-
+        app.buttonShow();
         data.splice(index, index + 1);
         renderList();
+
     }
 
     function addTask(task) {
