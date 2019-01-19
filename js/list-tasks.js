@@ -1,5 +1,5 @@
 (function () { 
-    let data = [];
+     let data = JSON.parse(localStorage.getItem('tasks')) || [];
     const list = document.querySelector('.task-list-js');
 
     window.app = {};
@@ -29,14 +29,17 @@
             label.innerText = title;
 
             attachEditHandler(checkbox, index);
+            app.attachModalHandler(item, data[index]);
 
             list.appendChild(item);  // add element into html
+          
         });
-
     }
 
     function attachEditHandler(elem, index) {
         elem.addEventListener('click', removeTask.bind(null, elem, index));
+         
+        ///
     }
 
     function removeTask(elem, index) {
@@ -52,11 +55,10 @@
 
     function addTask(task) {
         data.push(task);
+        localStorage.setItem('tasks', JSON.stringify(data));
     }
 
     window.app.renderList = renderList;
     window.app.addTask = addTask;
-    
-    
-    
+    window.app.removeTask = removeTask;
 })();

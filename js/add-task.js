@@ -10,7 +10,7 @@
 	        return;
 	    }
 
-	    if (text.value.trim().length > 50) { // validation
+	    if (text.value.trim().length > 50) {
 	        alert('Введите не более 50 символов');
 	        return false;
 	    }
