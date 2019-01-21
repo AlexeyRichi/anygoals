@@ -26,11 +26,11 @@
     
             const label = document.createElement('label'); 
             checkbox.appendChild(label);  
-            label.innerText = title; // откуда title
-
+            label.innerText = title; 
             attachEditHandler(checkbox, index);
 
             list.appendChild(item);  // add element into html
+          
         });
     }
 

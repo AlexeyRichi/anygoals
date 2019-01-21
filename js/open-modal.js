@@ -1,17 +1,18 @@
 (function () {  
 
     let data = JSON.parse(localStorage.getItem('tasks')) || [];
-
+    window.app = {};
     const modal = document.querySelector('.modal');
     const dimmer = document.querySelector('.dimmer');
     const buttonClose = document.querySelector('.close-task-js');
     const buttonCloseSmall = document.querySelector('.close');
-      
-      app.renderList();
+   
+      // app.renderList();
 
     function showModal() {
         dimmer.classList.add('active');
         modal.classList.add('active');
+    
     }
 
     function hideModal() {
@@ -19,9 +20,10 @@
         modal.classList.remove('active');
     };
 
-    function openModal(data) {
+    function openModal() {
 
    // dimmer.addEventListener('click', hideModal);
+
    buttonClose.addEventListener('click', hideModal);
    buttonCloseSmall.addEventListener('click', hideModal);
    modal.removeEventListener("click", hideModal);
@@ -36,14 +38,12 @@
 
         showModal();
     }
-
+    
     function attachModalHandler(item, data) {
        item.addEventListener('click', openModal.bind(null, data));
-
-        ///
     }
     
-window.app.attachModalHandler = attachModalHandler;
-window.app.openModal = openModal;
+  window.app.attachModalHandler = attachModalHandler;
+  window.app.openModal = openModal;
 
 })();

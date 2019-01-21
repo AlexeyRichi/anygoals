@@ -2,7 +2,7 @@
      let data = JSON.parse(localStorage.getItem('tasks')) || [];
     const list = document.querySelector('.task-list-js');
 
-    window.app = {};
+    // window.app = {};
 
 
     function renderList() {
@@ -19,7 +19,7 @@
             const checkbox = document.createElement('div');  
             checkbox.className = 'checkbox ui'; 
             content.appendChild(checkbox);  
-                
+
             const input = document.createElement('input'); 
             input.type = 'checkbox'; 
             checkbox.appendChild(input);  
@@ -29,6 +29,7 @@
             label.innerText = title;
 
             attachEditHandler(checkbox, index);
+          
             app.attachModalHandler(item, data[index]);
 
             list.appendChild(item);  // add element into html
@@ -38,8 +39,6 @@
 
     function attachEditHandler(elem, index) {
         elem.addEventListener('click', removeTask.bind(null, elem, index));
-         
-        ///
     }
 
     function removeTask(elem, index) {
