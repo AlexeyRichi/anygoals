@@ -1,8 +1,6 @@
 (function () { 
-     let data = JSON.parse(localStorage.getItem('tasks')) || [];
+    let data = JSON.parse(localStorage.getItem('tasks')) || [];
     const list = document.querySelector('.task-list-js');
-
-    // window.app = {};
 
 
     function renderList() {
@@ -36,12 +34,18 @@
           
         });
     }
-
-    function attachEditHandler(elem, index) {
-        elem.addEventListener('click', removeTask.bind(null, elem, index));
+      function removeChild() {
+       const item = document.querySelector('.item');
+       const list = document.querySelector('.task-list-js');
+       list.removeChild(item);
+       localStorage.removeItem('task');
     }
 
-    function removeTask(elem, index) {
+    function attachEditHandler(elem, index) {
+        elem.addEventListener('click', removeTask.bind(null, elem, index), true);
+    }
+
+    function removeTask(elem, index, event) {
         elem.removeEventListener('click', removeTask);
         
         app.addCompletedTask(data[index]);
@@ -49,7 +53,7 @@
         app.buttonShow();
         data.splice(index, index + 1);
         renderList();
-
+        event.stopImmediatePropagation();
     }
 
     function addTask(task) {
@@ -57,7 +61,10 @@
         localStorage.setItem('tasks', JSON.stringify(data));
     }
 
+    renderList();
+ 
     window.app.renderList = renderList;
     window.app.addTask = addTask;
     window.app.removeTask = removeTask;
+    window.app.removeChild = removeChild;
 })();
