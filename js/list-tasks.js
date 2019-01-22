@@ -31,14 +31,8 @@
             app.attachModalHandler(item, data[index]);
 
             list.appendChild(item);  // add element into html
-          
+            
         });
-    }
-      function removeChild() {
-       const item = document.querySelector('.item');
-       const list = document.querySelector('.task-list-js');
-       list.removeChild(item);
-       localStorage.removeItem('task');
     }
 
     function attachEditHandler(elem, index) {
@@ -56,12 +50,19 @@
         event.stopImmediatePropagation();
     }
 
+
     function addTask(task) {
         data.push(task);
         localStorage.setItem('tasks', JSON.stringify(data));
     }
-
+      function removeChild() {
+       const item = document.querySelector('.item');
+       const list = document.querySelector('.task-list-js');
+       list.removeChild(item);
+       localStorage.removeItem('task');
+    }
     renderList();
+
  
     window.app.renderList = renderList;
     window.app.addTask = addTask;

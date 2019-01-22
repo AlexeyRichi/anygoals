@@ -16,10 +16,10 @@
         dimmer.classList.remove('active');
         modal.classList.remove('active');
     };
-
+    
     function openModal(data) {
 
-     buttonClose.addEventListener('click', hideModal);
+     buttonClose.addEventListener('click', app.deleteItem);
      buttonCloseSmall.addEventListener('click', hideModal);
      modal.removeEventListener("click", hideModal);
      /// editing
@@ -31,7 +31,7 @@
       localStorage.setItem('title', titleEdit.value);
       localStorage.setItem('description', description.value);
       showModal();
-      app.removeChild();
+     
     }
     
     function attachModalHandler(item, data) {

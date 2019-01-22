@@ -9,6 +9,10 @@
 		btn.classList.remove('hidden');
 		btn.className = 'ui button blue tiny show-todo-btn-js';
 	}
+	function buttonHide() {
+		btn.classList.add('hidden');
+
+	}
 
 	btn.addEventListener('click', function (event) {
 		if(isActive) { // active
@@ -27,8 +31,9 @@
   
 function getCompletedTask() {
        return data;
+        app.buttonHidden();
     }
-
+    window.app.buttonHide = buttonHide;
     window.app.getCompletedTask = getCompletedTask;
     window.app.buttonShow = buttonShow;
 	

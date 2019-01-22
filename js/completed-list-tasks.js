@@ -30,14 +30,18 @@
             attachEditHandler(checkbox, index);
 
             list.appendChild(item);  // add element into html
-          
+            buttonHidden();
         });
     }
 
     function attachEditHandler(elem, index) {
         elem.addEventListener('click', removeCompletedTask.bind(null, elem, index));
+   
     }
-
+    function deleteItem() {
+        const item = document.querySelector('.item'); 
+        list.removeChild(item);
+    }
     function removeCompletedTask(elem, index) {
         elem.removeEventListener('click', removeCompletedTask);
 
@@ -46,19 +50,28 @@
 
         data.splice(index, index + 1);
         renderCompletedList();
-    }
 
+    }
+     function buttonHidden() {
+        if (document.contains(list)){
+            app.buttonHide(); //это нужно уточнить, так как кнопка исчезает после двух нажатий
+        }
+        else {
+            return false;
+        }
+     }    
     function addCompletedTask(task) {
         data.push(task);
     }
 
     function getCompletedTask() {
        return data;
-    }
 
+    }
+  
     window.app.renderCompletedList = renderCompletedList;
     window.app.addCompletedTask = addCompletedTask;
     window.app.getCompletedTask = getCompletedTask;
     
-    
+    window.app.deleteItem = deleteItem;
 })();

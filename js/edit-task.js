@@ -30,7 +30,7 @@
         let a = item[i];
           a.addEventListener('click', function (ev) {
           a.removeAttribute('id', 'check');
-          
+           app.buttonHidden();
           });
         }
     }
