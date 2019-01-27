@@ -1,7 +1,6 @@
 (function () { 
-    let data = [];
+    let data = JSON.parse(localStorage.getItem('completed-tasks')) || [];
     const list = document.querySelector('.completed-task-list');
-
 
     function renderCompletedList() {
         list.innerHTML = '';
@@ -30,7 +29,7 @@
             attachEditHandler(checkbox, index);
 
             list.appendChild(item);  // add element into html
-            buttonHidden();
+         
         });
     }
 
@@ -50,24 +49,20 @@
 
         data.splice(index, index + 1);
         renderCompletedList();
-
+         
     }
-     function buttonHidden() {
-        if (document.contains(list)){
-            app.buttonHide(); //это нужно уточнить, так как кнопка исчезает после двух нажатий
-        }
-        else {
-            return false;
-        }
-     }    
+     
     function addCompletedTask(task) {
         data.push(task);
+        localStorage.setItem('completed-tasks', JSON.stringify(data));
     }
 
     function getCompletedTask() {
        return data;
-
     }
+       
+
+    renderCompletedList();
   
     window.app.renderCompletedList = renderCompletedList;
     window.app.addCompletedTask = addCompletedTask;
