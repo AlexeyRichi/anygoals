@@ -1,5 +1,5 @@
 (function () { 
-	let data = [];
+	let data = JSON.parse(localStorage.getItem('completed-tasks')) || [];;
 
 	const btn = document.querySelector('.hidden');
 	const listCompleted = document.querySelector('.completed-task-list');
@@ -15,24 +15,24 @@
 	}
 
 	btn.addEventListener('click', function (event) {
-		if(isActive) { // active
-
+		if(isActive) { 
 			btn.innerText = 'Скрыть незавершенные задачи';
-
 			isActive = false;
-		} else { // is not active
+		} else {
 			btn.innerText = 'Показать незавершенные задачи';
-
 			isActive = true;
 		}
-		
 		listCompleted.classList.toggle('hidden');
 	});
   
 function getCompletedTask() {
        return data;
-        app.buttonHidden();
+       app.buttonHidden();
     }
+		if (data.length > 0){
+    	buttonShow();
+    }
+
     window.app.buttonHide = buttonHide;
     window.app.getCompletedTask = getCompletedTask;
     window.app.buttonShow = buttonShow;

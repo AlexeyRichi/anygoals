@@ -37,10 +37,7 @@
         elem.addEventListener('click', removeCompletedTask.bind(null, elem, index));
    
     }
-    function deleteItem() {
-        const item = document.querySelector('.item'); 
-        list.removeChild(item);
-    }
+
     function removeCompletedTask(elem, index) {
         elem.removeEventListener('click', removeCompletedTask);
 
@@ -49,7 +46,8 @@
 
         data.splice(index, index + 1);
         renderCompletedList();
-         
+
+        localStorage.setItem('completed-tasks', JSON.stringify(data));
     }
      
     function addCompletedTask(task) {
@@ -60,13 +58,10 @@
     function getCompletedTask() {
        return data;
     }
-       
-
+    
     renderCompletedList();
   
     window.app.renderCompletedList = renderCompletedList;
     window.app.addCompletedTask = addCompletedTask;
     window.app.getCompletedTask = getCompletedTask;
-    
-    window.app.deleteItem = deleteItem;
 })();

@@ -35,53 +35,44 @@
         });
     }
 
-    
-
     function attachEditHandler(elem, index) {
-        elem.addEventListener('click', removeTask.bind(null, elem, index), true);
+        elem.addEventListener('click', moveToCompletedTask.bind(null, elem, index), true);
 
     }
 
-    function removeTask(elem, index, event) {
-        elem.removeEventListener('click', removeTask);
-        
+    function moveToCompletedTask(elem, index, event) {
+        elem.removeEventListener('click', moveToCompletedTask);
         app.addCompletedTask(data[index]);
         app.renderCompletedList();
         app.buttonShow();
-        data.splice(index, index + 1);
-
-        updateDataList(data);
-
-        renderList();
+        removeTaskFromDate(index);
         event.stopImmediatePropagation();
     }
-
 
     function addTask(task) {
         data.push(task);
         updateDataList(data);
     }
-      function removeChild() {
-       const item = document.querySelector('.item');
-       const list = document.querySelector('.task-list-js');
-       list.removeChild(item);
-       localStorage.removeItem('task');
+   
+    function updateDataList(data) {
+        localStorage.setItem('tasks', JSON.stringify(data));
+    }
+    function updateIndexItemList(item, index) {
+        data[index] = item;
+        updateDataList(data);
     }
 
-    function updateDataList(data) {
-       localStorage.setItem('tasks', JSON.stringify(data));
-    }
-     function updateIndexItemList(item, index) {
-       data[index] = item;
-       updateDataList(data);
+    function removeTaskFromDate(index){
+        data.splice(index, 1);
+        updateDataList(data);
+        renderList();
     }
     renderList();
-
- 
+    
     window.app.renderList = renderList;
     window.app.addTask = addTask;
-    window.app.removeTask = removeTask;
-    window.app.removeChild = removeChild;
+    window.app.moveToCompletedTask = moveToCompletedTask;
     window.app.updateDataList = updateDataList;
     window.app.updateIndexItemList = updateIndexItemList;
+    window.app.removeTaskFromDate = removeTaskFromDate;
 })();
